@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="initial-scale=1, minimum-scale=1, maximum-scale=1">
+            <meta charset="utf-8">
+                <title>Grade Calculator</title>
+                <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.css" />
+                <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+                <script src="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.js"></script>
+                <script src="js/index.js"></script>
+                </head>
+    
+    <style>
+      
+      *{font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;}
+                  .form-wrapper{background-color:rgba(86, 159, 219, 0.5);padding:10px;
+                  -webkit-border-radius: 5px;
+                  -moz-border-radius: 5px;
+                  border-radius: 5px;
+                  }
+      
+       @import url(http://fonts.googleapis.com/css?family=Advent+Pro:100);
+html{ 
+  background:  url(http://upload.wikimedia.org/wikipedia/commons/d/dd/Muybridge_race_horse_animated.gif) no-repeat center center fixed; 
+  background-size: cover;
+}
+      
+                    #mainPage2,#settingsPage,#maxPoints,#scaling,#grading{ 
+  background:  url(./img/235v2.gif) no-repeat center center fixed; 
+  background-size: cover;
+}
+                    #greensheetPage,#studentPage{ 
+  background:  url(http://i207.photobucket.com/albums/bb79/toula_01/BACKGROUNDS/fallingcolored.gif) no-repeat center center fixed; 
+  background-size: cover;
+}     
+      
+      
+  </style>
+    
+    <body>
+        
+        
+        
+        <div data-role="page" class="" id="mainPage" data-add-back-btn="true" data-theme="c">
+            <div data-role="header" class="">
+                <h1>Login</h1>
+            </div>
+            <div data-role="content" class="">
+                <form>
+                    <div data-role="fieldcontain">
+                        <label for="userName">UserName</label>
+                        <input type="text" name="userName" id="userName" value="">
+                        <label for="password">Password</label>
+                        <input type="password" name="password" id="password" value="">
+                                
+                        <p style="text-align: center;">
+                        <a href="#mainPage2" id='LogIn' data-role="button" data-inline="true" data-icon="check">LogIn</a>
+                        </p>
+                    </div>
+                </form>
+            </div>
+        </div>
+        
+        
+        <!-------------------------------------- Main Page ------------->
+        
+        
+        <!--student details page-->
+        
+        
+        
+        <div data-role="page" class="" id="mainPage2" >
+            <div data-role="header" class="">
+                <h1>Main Page</h1>
+                <a href="#settingsPage" id='settingsButton' class="ui-btn-right" data-role="button" data-icon="gear">Settings</a>
+                <a href="#greensheetPage" id='greensheetButton' class="ui-btn-left" data-role="button" data-icon="star">Greensheet</a>
+                
+            </div>
+            
+            <div data-role="header" class="">
+                <p style="text-align: center;">
+                <a href="#studentPage" id="studentButton" data-role="button" data-icon="star">Student Details</a>
+                </p>
+            </div>
+            
+            <div data-role="content" class="">
+                <form name="form1">
+                    <div data-role="fieldcontain">
+                        <label for="homework2">HomeWorks</label>
+                        <input type="number" name="homework2" id="homework2" data-clear-btn="true" maxlength="3" value="" placeholder="Homework points">
+                            
+                        <label for="labs2">Labs</label>
+                        <input type="number" name="labs2" id="labs2" data-clear-btn="true" maxlength="3" value="" placeholder="Enter labs points">
+                        <label for="project2">Project</label>
+                        <input type="number" name="project2" id="project2" data-clear-btn="true" maxlength="3" value="" placeholder="Enter Project points">
+                        <label for="presentation2">Presentation</label>
+                        <input type="number" name="presentation2" id="presentation2" data-clear-btn="true" maxlength="3" value="" placeholder="Enter Presentation points">
+                        <label for="midterm2">Midterm</label>
+                        <input type="number" name="midterm2" id="midterm2" data-clear-btn="true" maxlength="3" value="" placeholder="Enter Midterm points ">
+                        <label for="final2">Final</label>
+                        <input type="number" name="final2" id="final2" data-clear-btn="true" maxlength="3" value="" placeholder="Enter Final points">
+                    </div>
+                    <p style="text-align: center;">
+                    <a href="#" id="computeGrade" data-role="button" data-icon="check">Compute Grade</a>
+                    </p>
+                    <p class="final grade">
+                    <label>Final Grade</label>
+                    <span id="finalgrade">TBD</span>
+                    </p>
+                </form>
+            </div>
+        </div>
+        <div data-role="page" class="" id="settingsPage" data-add-back-btn="true" >
+            <div data-role="header" class="">
+                <a href="#" id='cancelSettings' class="ui-btn ui-icon-delete ui-btn-icon-left" data-rel="back">Cancel</a>
+                <a href="#" class="ui-btn ui-icon-back ui-btn-icon-right" data-rel="back">Back</a>
+                <h1>Grade-Settings</h1>
+            </div>
+            <div data-role="content" class="">
+                <a href="#maxPoints" id='maxPoints' data-role="button" data-icon="star">Maximum Points</a>
+                <a href="#scaling" id='scaling' data-role="button" data-icon="star">Scaling Factor</a>
+                <a href="#grading" id='grading' data-role="button" data-icon="star">Grading</a>
+                
+            </div>
+            
+        </div>
+        
+        <div data-role="page" class="" id="greensheetPage" data-add-back-btn="true" >
+            <div data-role="header" class="">
+                <a href="#" class="ui-btn ui-icon-back ui-btn-icon-right" data-rel="back">Back</a>
+                <h1>Greensheet</h1>
+            </div>
+            <style type="text/css">
+                
+                iframe {
+                    width: 100%;
+                    height: 600px;
+                }
+            
+                </style>
+            <div data-role="content" class="">
+                <iframe src="http://openloop.com/education/classes/sjsu_engr/engr_mobile_dev/spring2015/index.php"></iframe>
+                
+            </div>
+        </div>
+        
+        
+        <div data-role="page" class="" id="studentPage" data-add-back-btn="true" >
+            <div data-role="header" class="">
+                <h1>Student Details</h1>
+                <a href="#" class="ui-btn ui-icon-back ui-btn-icon-right" data-rel="back">Back</a>
+            </div>
+            <style type="text/css">
+                
+                iframe {
+                    width: 100%;
+                    height: 600px;
+                }
+            
+                </style>
+            <div data-role="content" class="">
+                <iframe src="http://rohitchoprasjsu.website/studentDetails.html"></iframe>
+                
+            </div>
+        </div>
+        
+        <div data-role="page" class="" id="maxPoints" data-add-back-btn="true" >
+            <div data-role="header" class="">
+                <a href="#" class="ui-btn ui-icon-back ui-btn-icon-right" data-rel="back">Back</a>
+                <h1>Max Marks</h1>
+            </div>
+            <div data-role="content" class="">
+                <form>
+                    <div data-role="fieldcontain">
+                        <label for="homework">Homeworks</label>
+                        <input type="number" name="homework" id="homework" value="">
+                        <label for="labs">Labs</label>
+                        <input type="number" name="labs" id="labs" value="">
+                        <label for="project">Project</label>
+                        <input type="number" name="project" id="project" value="">
+                        <label for="presentation">Presentation</label>
+                        <input type="number" name="presentation" id="presentation" value="">
+                        <label for="midterm">Midterm</label>
+                        <input type="number" name="midterm" id="midterm" value="">
+                        <label for="final">Final</label>
+                        <input type="number" name="final" id="final" value="">
+                        <p style="text-align: center;">
+                        <a href="#" id='saveMaxSettings' data-role="button" data-inline="true" data-icon="check">Save</a>
+                        </p>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div data-role="page" class="" id="scaling" data-add-back-btn="true" >
+            <div data-role="header" class="">
+                <a href="#" class="ui-btn ui-icon-back ui-btn-icon-right" data-rel="back">Back</a>
+                <h1>Scaling Factors</h1>
+            </div>
+            <div data-role="content" class="">
+                <form>
+                    <div data-role="fieldcontain">
+                        <label for="homework1">Homeworks</label>
+                        <input type="number" name="homework1" id="homework1" value="">
+                        <label for="labs1">Labs</label>
+                        <input type="number" name="labs1" id="labs1" value="">
+                        <label for="project1">Project</label>
+                        <input type="number" name="project1" id="project1" value="">
+                        <label for="presentation1">Presentation</label>
+                        <input type="number" name="presentation1" id="presentation1" value="">
+                        <label for="midterm1">Midterm</label>
+                        <input type="number" name="midterm1" id="midterm1" value="">
+                        <label for="final1">Final</label>
+                        <input type="number" name="final1" id="final1" value="">
+                        <p style="text-align: center;">
+                        <a href="#" id='saveScaleSettings' data-role="button" data-inline="true" data-icon="check">Save</a>
+                        </p>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div data-role="page" class="" id="grading" data-add-back-btn="true" >
+            <div data-role="header" class="">
+                <a href="#" class="ui-btn ui-icon-back ui-btn-icon-right" data-rel="back">Back</a>
+                <h1>Grade Configuration</h1>
+            </div>
+            <div data-role="content" class="">
+                <form>
+                    <div data-role="rangeslider" >
+                        <label for="lowA"> Grade A </label>
+                        <input name="lowA" id="lowA" min="0" max="100" value="0" type="range"/>
+                        <label for="highA"> Grade A </label>
+                        <input name="highA" id="highA" min="0" max="100" value="100" type="range" />
+                    </div>
+                    <div data-role="rangeslider" >
+                        <label for="lowB"> Grade B </label>
+                        <input name="lowB" id="lowB" min="0" max="100" value="0" type="range" />
+                        <label for="highB"> Grade B </label>
+                        <input name="highB" id="highB" min="0" max="100" value="100" type="range" />
+                    </div>
+                    <div data-role="rangeslider" >
+                        <label for="lowC"> Grade C </label>
+                        <input name="lowC" id="lowC" min="0" max="100" value="0" type="range" />
+                        <label for="highC"> Grade C </label>
+                        <input name="highC" id="highC" min="0" max="100" value="100" type="range" />
+                    </div>
+                    <div data-role="rangeslider" >
+                        <label for="lowD"> Grade D </label>
+                        <input name="lowD" id="lowD" min="0" max="100" value="0" type="range" />
+                        <label for="highD"> Grade D </label>
+                        <input name="highD" id="highD" min="0" max="100" value="100" type="range" />
+                    </div>
+                    <div data-role="rangeslider" >
+                        <label for="lowE"> Grade E </label>
+                        <input name="lowE" id="lowE" min="0" max="100" value="0" type="range" />
+                        <label for="highE"> Grade E </label>
+                        <input name="highE" id="highE" min="0" max="100" value="100" type="range" />
+                    </div>
+                    <div data-role="rangeslider" >
+                        <label for="lowF"> Grade F </label>
+                        <input name="lowF" id="lowF" min="0" max="100" value="0" type="range" />
+                        <label for="highF"> Grade F </label>
+                        <input name="highF" id="highF" min="0" max="100" value="100" type="range" />
+                    </div>
+                    
+                    <p style="text-align: center;">
+                    <a href="#" id='saveGradeSettings' data-role="button" data-inline="true" data-icon="check">Save</a>
+                    </p>
+                </form>
+            </div>
+        </div>
+        <script type="text/javascript" src="cordova.js"></script>
+        <script src="js/index.js"></script>
+    </body>
+</html>
